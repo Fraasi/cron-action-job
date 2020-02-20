@@ -24,3 +24,7 @@ The time we greeted you.
 uses: actions/hello-world-javascript-action@v1
 with:
   who-to-greet: 'Mona the Octocat'
+
+  [usage limits](https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#usage-limits)
+
+  https://crontab.guru/

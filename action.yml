@@ -1,10 +1,11 @@
-name: 'Action test'
-description: 'Greet someone and record the time'
+name: 'Cron-Action'
+author: 'Fraasi'
+description: 'Using actions schedule to run a cron job'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
-    required: true
-    default: 'World'
+  cron-expression:  # id of input
+    description: 'Cron schedule expression'
+    required: false
+    default: '0 12 * * *'
 outputs:
   time: # id of output
     description: 'The time we greeted you'
