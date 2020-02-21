@@ -2,7 +2,7 @@ name: 'Cron-Action'
 author: 'Fraasi'
 description: 'Using actions schedule to run a cron job'
 inputs:
-  cron-expression:  # id of input
+  git_context:  # id of input
     description: 'Cron schedule expression'
     required: false
     default: '0 12 * * *'
