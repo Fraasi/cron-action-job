@@ -1,7 +1,7 @@
 name: cron-action.yml
 on:
   schedule:
-    - cron: '25 12 * * *'
+    - cron: '40 12 * * *'
 jobs:
   cron-action-job:
     # name: Cron-Action
@@ -13,6 +13,8 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Run Action
         uses: ./
         with:
