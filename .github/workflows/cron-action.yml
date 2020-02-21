@@ -1,0 +1,20 @@
+name: cron-action.yml
+on:
+  schedule:
+    - cron: '00 12 * * *'
+jobs:
+  cron-action-job:
+    # name: Cron-Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cron-action
+        run: echo "Run cron action" && date
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Run Action
+        run: ./
+        with:
+          git_context: $GITHUB_CONTEXT
+
