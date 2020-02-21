@@ -14,7 +14,7 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Run Action
-        run: ./
+        uses: ./
         with:
           git_context: $GITHUB_CONTEXT
 
