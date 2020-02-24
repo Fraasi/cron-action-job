@@ -1,7 +1,7 @@
 name: cron-job.yml
 on:
   schedule:
-    - cron: '20 16 * * *' # UTC
+    - cron: '30 16 * * *' # UTC
 jobs:
   cron-action-job:
     name: Cron Action Job
