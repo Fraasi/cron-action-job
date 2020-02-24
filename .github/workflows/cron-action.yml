@@ -1,13 +1,13 @@
 name: cron-action.yml
 on:
   schedule:
-    - cron: '35 13 * * *' # UTC
+    - cron: '40 14 * * *' # UTC
 jobs:
   cron-action-job:
     name: where does this show?
     runs-on: ubuntu-latest
     steps:
-      - name: Setup everything
+      # - name: Setup everything
       - run: echo "Cron job runs at " && date
       - uses: actions/checkout@v2 # defaults to master@latest
       - uses: actions/setup-node@v1 # copies over a pre-existing archive for faster access
