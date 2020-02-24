@@ -1,22 +1,21 @@
 name: cron-action.yml
 on:
   schedule:
-    - cron: '40 12 * * *'
+    - cron: '35 13 * * *' # UTC
 jobs:
   cron-action-job:
-    # name: Cron-Action
+    name: where does this show?
     runs-on: ubuntu-latest
     steps:
-      - name: Cron-action
-        run: echo "Run cron action" && date
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Checkout
+      - name: Cron-Job
+        run: echo "Cron job runs at " && date
+      - name: Checkout & Setup NodeJS 12.x
         uses: actions/checkout@v2
-      - name: Run Action
-        uses: ./
-        with:
-          git_context: $GITHUB_CONTEXT
-
+        uses: actions/setup-node@v1 # copies over a pre-existing archive, which already resides on the image file for faster access
+          with:
+            node-version: '12.x'
+      - name: Install dependencies & run
+        run: |
+          npm ci
+          npm start
+          node script.js fromnode
