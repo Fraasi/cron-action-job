@@ -2,15 +2,11 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  const git_context = core.getInput('git_context');
-  console.log(`git_context ${git_context}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
+  const time = (new Date()).toUTCString();
+  console.log(`The script.js ran at ${time}`);
   // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  const payload = JSON.stringify(github.context.payload, undefined, 2);
+  console.log(`The cron syntax used was ${payload.schedule}`);
 } catch (error) {
   core.setFailed(error.message);
 }
-
-console.log('hello from script.js', process.argv)
