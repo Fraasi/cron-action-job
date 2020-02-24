@@ -1,19 +1,18 @@
 name: cron-job.yml
 on:
   schedule:
-    - cron: '30 16 * * *' # UTC
+    - cron: '38 16 * * *' # UTC
 jobs:
   cron-action-job:
     name: Cron Action Job
     runs-on: ubuntu-latest
     steps:
-      - name: Setup everything
-        uses: actions/checkout@v2 # defaults to master branch latest commit
-        uses: actions/setup-node@v1 # copies over a pre-existing archive for faster access
+      - uses: actions/checkout@v2 # defaults to master branch latest commit
+      - uses: actions/setup-node@v1 # copies over a pre-existing archive for faster access
         with:
           node-version: '12.x'
-        run: npm ci
-      - name: Script.js
+      - name: Run script.js
         run: |
+          npm ci
           date
           node script.js
