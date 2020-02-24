@@ -1,7 +1,7 @@
 name: cron-action.yml
 on:
   schedule:
-    - cron: '40 14 * * *' # UTC
+    - cron: '55 14 * * *' # UTC
 jobs:
   cron-action-job: # job id
     name: where does this show? # job name
