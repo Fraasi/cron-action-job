@@ -3,8 +3,8 @@ on:
   schedule:
     - cron: '40 14 * * *' # UTC
 jobs:
-  cron-action-job:
-    name: where does this show?
+  cron-action-job: # job id
+    name: where does this show? # job name
     runs-on: ubuntu-latest
     steps:
       # - name: Setup everything
@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v1 # copies over a pre-existing archive for faster access
         with:
           node-version: '12.x'
-      - run: ci
+      - run: npm ci
       - run: |
           npm start
           node script.js fromnode
