@@ -1,20 +1,19 @@
 name: cron-action.yml
 on:
   schedule:
-    - cron: '10 14 * * *' # UTC
+    - cron: '35 13 * * *' # UTC
 jobs:
   cron-action-job:
     name: where does this show?
     runs-on: ubuntu-latest
     steps:
+      - name: Setup everything
       - run: echo "Cron job runs at " && date
-      - name: Checkout & Setup NodeJS 12.x
       - uses: actions/checkout@v2 # defaults to master@latest
       - uses: actions/setup-node@v1 # copies over a pre-existing archive for faster access
         with:
           node-version: '12.x'
       - run: ci
-      - name: Run
       - run: |
           npm start
           node script.js fromnode
